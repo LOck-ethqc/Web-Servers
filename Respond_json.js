@@ -6,7 +6,6 @@ app.get("/", (req,res)=>{
     res.send("Hello, World!");
 });
 
-// Dynamic Routing
 app.get("/products", (req,res)=>{
     const product_list = [
         {
