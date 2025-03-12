@@ -76,7 +76,8 @@ const updateBook = async(req,res)=>{
                 "Error Message": "Invalid keys provided!"
             });
         }
-        const updatedBook = await Book.findByIdAndUpdate(requested_bookid, requested_body, {new: true, runValidators: true});
+        const updatedBook = await Book.findByIdAndUpdate(requested_bookid, requested_body, {new: true, runValidators: true}); // 'runValidators' it makes sure that it validates against the limitation attributes
+        // written in the Schema(exp, maxLength). Because '.findByIdAndUpdate' does not validate by default like '.create'
         if(updatedBook){
             res.status(200).json({
                 "Success": true,
