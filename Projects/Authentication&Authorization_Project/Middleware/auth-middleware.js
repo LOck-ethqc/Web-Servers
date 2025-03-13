@@ -13,7 +13,7 @@ const authHeader = req.headers["authorization"]; // checks if a token is stored 
     // at the beginning
     try{
         const verifyToken = jwt.verify(Token, process.env.JWT_SECRET_KEY); // checks if token is valid or not
-        req.userInfo = verifyToken;
+        req.userInfo = verifyToken; // forwards back the decoded paylaod data to the next handler
         next();
     }catch(error){
         console.error(error);
